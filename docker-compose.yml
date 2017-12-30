@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - GO_ENV=docker
+    volumes:
+      - .:/go/src/github.com/RyotaKatoh/gcp-example
+    logging:
+      options:
+        max-size: "500k"
+    ports: 
+      - "3000:3000"
